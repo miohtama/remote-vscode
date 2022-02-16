@@ -44,13 +44,22 @@ A package that implements the Textmate's 'rmate' feature for VSCode.
 
 * Create an ssh tunnel
   ```bash
-  ssh -R 52698:127.0.0.1:52698 user@example.org
+  ssh -R 52698:127.0.0.1:52698 myusername@example.org
   ```
 
 * Go to the remote system and run
   ```bash
   rmate -p 52698 file
   ```
+  
+* You can also add to your local `~/.ssh/config` file a remote port forwarding snippet, so that you do not need to always type in `-R` option. For example to just need to type in `ssh myserver`:
+
+   ```
+   Host myserver
+   User myusername
+   Hostname example.org
+   RemoteForward 52698 127.0.0.1:52698
+   ```
 
 ## License
 [MIT](LICENSE.txt)
